@@ -35,4 +35,4 @@ echo "deb [arch=amd64] http://repo.radeon.com/rocm/apt/debian/ xenial main" > /e
 echo "Instlall rocm" | tee $LOG_PATH
 apt-get update >> /dev/null
 apt-get -y install rocm-dkms rocm-opencl | tee $LOG_PATH
-cp /root/tdxminer-*/tdxminer /usr/bin/tdxminer
+cp $PATH/tdxminer-*/tdxminer /usr/bin/tdxminer
