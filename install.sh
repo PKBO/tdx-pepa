@@ -1,5 +1,10 @@
 #!/bin/bash
 LOG_PATH="/root/install-sh.log"
+PATH="/root/tdxminer"
+MINER_VERSION="v0.2.2.1"
+
+mkdir -p $PATH
+cd $PATH
 
 # Make sure only root can run our script
 if [ "$(id -u)" != "0" ]; then
@@ -7,18 +12,16 @@ if [ "$(id -u)" != "0" ]; then
    exit 1
 fi
 
-cd /root
-
 echo "Update & Upgrade of system and installing necessary libraries"  | tee $LOG_PATH
 apt-get update | tee $LOG_PATH
 apt-get -y dist-upgrade | tee $LOG_PATH
 apt-get -y install libnuma-dev | tee $LOG_PATH
 
 echo "Downloading tdxminer" | tee $LOG_PATH
-wget https://github.com/todxx/tdxminer/releases/download/v0.2.2.1/tdxminer-v0.2.2.1.tgz | tee $LOG_PATH
+wget https://github.com/todxx/tdxminer/releases/download/$MINER_VERSION/tdxminer-$MINER_VERSION.tgz | tee $LOG_PATH
 
 echo "Extracting tdxminer" | tee $LOG_PATH
-tar -xf tdxminer-v0.2.2.1.tgz | tee $LOG_PATH
+tar -xf tdxminer-$MINER_VERSION.tgz | tee $LOG_PATH
 
 echo "Performing update and Upgrade of a system" | tee $LOG_PATH
 apt-get update | tee $LOG_PATH
