@@ -36,3 +36,9 @@ echo "Instlall rocm" | tee $LOG_PATH
 apt-get update >> /dev/null
 apt-get -y install rocm-dkms rocm-opencl | tee $LOG_PATH
 cp $PATH/tdxminer-*/tdxminer /usr/bin/tdxminer
+
+echo "Cloning repo" | tee $LOG_PATH
+cd $PATH
+git clone https://github.com/AdamNuclear/tdx-pepa.git
+mkdir -p /etc/tdx/
+cp $PATH/tdx-pepa/tdx_params.conf /etc/tdx/tdx_params.conf
