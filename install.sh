@@ -1,7 +1,7 @@
 #!/bin/bash
 LOG_PATH="/root/install-sh.log"
 PATH="/root/tdxminer"
-MINER_VERSION="v0.2.2.1"
+MINER_VERSION="v0.2.2.2"
 
 mkdir -p $PATH
 cd $PATH
